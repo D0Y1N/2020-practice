@@ -20,7 +20,7 @@ package frc.robot;
 public final class Constants {
 	// USB
 	public static final int driveController = 0;
-	public static final int operatorCOntroller = 1;
+	public static final int operatorController = 1;
 	public static final int driverJoyLeft = 2;
 	public static final int driverJoyRight = 3;
 	// CAN
@@ -36,8 +36,8 @@ public final class Constants {
 	public static final int doubleSolenoidB = 0;
 
 	// PWM
-	public static final int cargoHandlerArm = 0;
-	public static final int cargoHandlerWheels = 1;
+	public static final int armWinch = 0;
+	public static final int cargoWheelMotor = 1;
 	public static final int dartHandlerLeft = 2;
 	public static final int dartHandlerRight = 3;
 

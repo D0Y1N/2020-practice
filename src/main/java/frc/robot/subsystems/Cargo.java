@@ -7,31 +7,22 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class Arm extends SubsystemBase {
-
- /* public static final double floorLevel = 1.0;
-  public static final double upLevel = 3.0;
-  public static final double rocketLevel1 = 2.0;  */
-
-  private Talon motor = new Talon(Constants.armWinch);
-  private AnalogInput stringPot = new AnalogInput(Constants.stringPot);
-
-  public Arm() {
+public class Cargo extends SubsystemBase {
+  public Talon wheels = new Talon(Constants.cargoWheelMotor);
+  public Cargo() {
 
   }
 
   @Override
   public void periodic() {
-
+    // This method will be called once per scheduler run
   }
 
-  public void setWinchSpeed(double speed) {
-    motor.setSpeed(speed);
+  public void setWheelSpeed(double speed) {
+    wheels.setSpeed(speed);
   }
-
 }
