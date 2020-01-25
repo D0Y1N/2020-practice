@@ -42,6 +42,7 @@ public class RobotContainer {
     public static final XboxController m_operatorController = new XboxController(Constants.operatorController);
 
 
+<<<<<<< HEAD
 	 /**
      * Joystick drive commands
      */
@@ -64,6 +65,9 @@ public class RobotContainer {
             () -> m_drivetrain.arcadeDrive(m_driverController.getY(Hand.kLeft), m_driverController.getX(Hand.kRight)),
             m_drivetrain);
 	/**
+=======
+	/**m
+>>>>>>> 9a052646926656b72a57050a3885746487142f2c
 	 * The container for the robot. Contains subsystems, OI devices, and commands.
 	 */
 	public RobotContainer() {
@@ -72,7 +76,10 @@ public class RobotContainer {
 		m_arm.setDefaultCommand(m_teleopArm);
 		m_cargo.setDefaultCommand(m_teleopCargo);
 
-		// Configure the button bindings
+		// ExecuteCommands
+		m_teleopArm.execute();
+		m_teleopCargo.execute();
+
 		configureButtonBindings();
 	}
 
