@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.Command;
-
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 
@@ -36,10 +36,33 @@ public class RobotContainer {
 	private final TeleopCargo m_teleopCargo = new TeleopCargo(m_cargo);
 
 	// OI Devices
-	public static Joystick driverLeft = new Joystick(Constants.driverJoyLeft);
-	public static Joystick driverRight = new Joystick(Constants.driverJoyRight);
-	public static XboxController operator = new XboxController(Constants.operatorController);
+	public static final XboxController m_driverController = new XboxController(Constants.driveController);
+    public final Joystick m_driverLeftJoystick = new Joystick(Constants.driverJoyLeft);
+    public final Joystick m_driverRightJoystick = new Joystick(Constants.driverJoyRight);
+    public static final XboxController m_operatorController = new XboxController(Constants.operatorController);
 
+
+	 /**
+     * Joystick drive commands
+     */
+    private final Command m_tankJoystick = new RunCommand(
+            () -> m_drivetrain.tankDrive(m_driverLeftJoystick.getY(), m_driverRightJoystick.getY()), m_drivetrain);
+    private final Command m_arcadeJoystick = new RunCommand(
+            () -> m_drivetrain.arcadeDrive(m_driverRightJoystick.getY(), m_driverRightJoystick.getX()), m_drivetrain);
+    private final Command m_splitArcadeJoystick = new RunCommand(
+            () -> m_drivetrain.arcadeDrive(m_driverLeftJoystick.getY(), m_driverRightJoystick.getX()), m_drivetrain);
+    /**
+     * Controller drive commands
+     */
+    private final Command m_tankController = new RunCommand(
+            () -> m_drivetrain.tankDrive(m_driverController.getY(Hand.kLeft), m_driverController.getY(Hand.kRight)),
+            m_drivetrain);
+    private final Command m_arcadeController = new RunCommand(
+            () -> m_drivetrain.arcadeDrive(m_driverController.getY(Hand.kRight), m_driverController.getX(Hand.kRight)),
+            m_drivetrain);
+    private final Command m_splitArcadeController = new RunCommand(
+            () -> m_drivetrain.arcadeDrive(m_driverController.getY(Hand.kLeft), m_driverController.getX(Hand.kRight)),
+            m_drivetrain);
 	/**
 	 * The container for the robot. Contains subsystems, OI devices, and commands.
 	 */
