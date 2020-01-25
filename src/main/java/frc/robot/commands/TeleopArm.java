@@ -9,7 +9,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Arm;
 
@@ -30,7 +29,6 @@ public class TeleopArm extends CommandBase {
 	// Called every time the scheduler runs while the command is scheduled.
 	@Override
 	public void execute() {
-		m_arm.setWinchSpeed(RobotContainer.m_operatorController.getY(Hand.kLeft));
 	}
 
 	// Called once the command ends or is interrupted.

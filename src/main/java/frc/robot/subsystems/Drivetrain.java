@@ -33,7 +33,6 @@ public class Drivetrain extends SubsystemBase {
   private boolean reverse = false;
   private final double ticksPerInch = 4096 / (6 * Math.PI);
   private final double speedLimit = 1.0;
-  private final double stallCurrent = 2.0;
 
 
   public Drivetrain() {
