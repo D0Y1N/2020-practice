@@ -40,7 +40,7 @@ public class RobotContainer {
 	public static Joystick driverRight = new Joystick(Constants.driverJoyRight);
 	public static XboxController operator = new XboxController(Constants.operatorController);
 
-	/**
+	/**m
 	 * The container for the robot. Contains subsystems, OI devices, and commands.
 	 */
 	public RobotContainer() {
@@ -49,7 +49,10 @@ public class RobotContainer {
 		m_arm.setDefaultCommand(m_teleopArm);
 		m_cargo.setDefaultCommand(m_teleopCargo);
 
-		// Configure the button bindings
+		// ExecuteCommands
+		m_teleopArm.execute();
+		m_teleopCargo.execute();
+
 		configureButtonBindings();
 	}
 
