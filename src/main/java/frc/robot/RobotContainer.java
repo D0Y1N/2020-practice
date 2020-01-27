@@ -26,20 +26,20 @@ import frc.robot.subsystems.*;
  * commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
+
 	//Subsystems
 	private final Drivetrain m_drivetrain = new Drivetrain();
 	private final Arm m_arm = new Arm();
 	private final Cargo m_cargo = new Cargo();
-	
+	private final LED m_led = new LED();
+
 	//Commands
-	private final TeleopCargo m_teleopCargo = new TeleopCargo(m_cargo);
 
 	// OI Devices
 	private  final XboxController m_driverController = new XboxController(Constants.driveController);
     private final Joystick m_driverLeftJoystick = new Joystick(Constants.driverJoyLeft);
     private final Joystick m_driverRightJoystick = new Joystick(Constants.driverJoyRight);
     private  final XboxController m_operatorController = new XboxController(Constants.operatorController);
-
 
 	 /**
      * Joystick drive commands
@@ -49,7 +49,8 @@ public class RobotContainer {
     private final Command m_arcadeJoystick = new RunCommand(
             () -> m_drivetrain.arcadeDrive(-m_driverRightJoystick.getY(), m_driverRightJoystick.getX()), m_drivetrain);
     private final Command m_splitArcadeJoystick = new RunCommand(
-            () -> m_drivetrain.arcadeDrive(-m_driverLeftJoystick.getY(), m_driverRightJoystick.getX()), m_drivetrain);
+			() -> m_drivetrain.arcadeDrive(-m_driverLeftJoystick.getY(), m_driverRightJoystick.getX()), m_drivetrain);
+			
     /**
      * Controller drive commands
      */
@@ -85,7 +86,7 @@ public class RobotContainer {
 
 		CameraServer.getInstance().startAutomaticCapture(0);
 		CameraServer.getInstance().startAutomaticCapture(1);
-		
+
 		configureButtonBindings();
 	}
 

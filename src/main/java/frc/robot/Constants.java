@@ -23,6 +23,7 @@ public final class Constants {
 	public static final int operatorController = 1;
 	public static final int driverJoyLeft = 2;
 	public static final int driverJoyRight = 3;
+
 	// CAN
 	public static final int leftDriveMotor = 2;
 	public static final int leftDriveSPX1 = 1;
@@ -40,6 +41,7 @@ public final class Constants {
 	public static final int cargoWheelMotor = 1;
 	public static final int dartHandlerLeft = 2;
 	public static final int dartHandlerRight = 3;
+	public static final int stripLED = 7;
 
 	// Analog Ports
 	public static final int dartPOTRight = 0;

@@ -8,14 +8,15 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Cargo;
+import frc.robot.subsystems.LED;
+import edu.wpi.first.wpilibj.AddressableLED;
 
-public class TeleopCargo extends CommandBase {
-  private final Cargo m_cargo;
-
-  public TeleopCargo(Cargo cargo) {
-    m_cargo = cargo;
-    addRequirements(cargo);
+public class UpdateLED extends CommandBase {
+  private final LED m_led;
+  
+  public UpdateLED(LED led) {
+    m_led = led;
+    addRequirements(led);
   }
 
   // Called when the command is initially scheduled.
@@ -26,7 +27,7 @@ public class TeleopCargo extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
+    
   }
 
   // Called once the command ends or is interrupted.
