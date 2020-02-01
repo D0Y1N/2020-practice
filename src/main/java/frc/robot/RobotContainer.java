@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 
@@ -32,6 +33,7 @@ public class RobotContainer {
 	private final Arm m_arm = new Arm();
 	private final Cargo m_cargo = new Cargo();
 	private final LED m_led = new LED();
+	private final GyroPigeon m_pigeon = new GyroPigeon();
 
 	//Commands
 
@@ -118,6 +120,7 @@ public class RobotContainer {
 	 */
 	public Command getAutonomousCommand() {
 		// An ExampleCommand will run in autonomous
-		return null;
+		
+		return new SequentialCommandGroup(new DriveDistance(m_drivetrain, 15), new TurnAngle(m_drivetrain, m_pigeon, -90), new DriveDistance(m_drivetrain, 15));
 	}
 }

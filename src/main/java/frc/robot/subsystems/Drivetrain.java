@@ -31,7 +31,7 @@ public class Drivetrain extends SubsystemBase {
 
   private double zeroDistance = 0;
   private boolean reverse = false;
-  private final double ticksPerInch = 4096 / (6 * Math.PI);
+  private final double ticksPerInch = 4096 / (4 * Math.PI);
   private final double speedLimit = 1.0;
 
 
@@ -58,12 +58,22 @@ public class Drivetrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    displayDistance();
   }
-  public void tankDrive(final double left, final double right) {
+
+  public void displayDistance() {
+      SmartDashboard.putNumber("Distance Traveled: ", getDistanceTravelled());
+  }
+
+  public void tankDrive(double left, double right) {
+    tankDrive(left, right, true);
+  }
+
+  public void tankDrive(final double left, final double right, boolean squareInputs) {
     if (reverse) {
-      m_drive.tankDrive(-right * speedLimit, -left * speedLimit);
+      m_drive.tankDrive(-right * speedLimit, -left * speedLimit, squareInputs);
     } else {
-      m_drive.tankDrive(left * speedLimit, right * speedLimit);
+      m_drive.tankDrive(left * speedLimit, right * speedLimit, squareInputs);
     }
   }
 
