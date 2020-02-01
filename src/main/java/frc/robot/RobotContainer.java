@@ -121,6 +121,6 @@ public class RobotContainer {
 	public Command getAutonomousCommand() {
 		// An ExampleCommand will run in autonomous
 		
-		return new SequentialCommandGroup(new DriveDistance(m_drivetrain, 15), new TurnAngle(m_drivetrain, m_pigeon, -90), new DriveDistance(m_drivetrain, 15));
+		return new SequentialCommandGroup(new DriveDistancePID(m_drivetrain, m_pigeon, 120), new TurnAngle(m_drivetrain, m_pigeon, -180), new DriveDistancePID(m_drivetrain, m_pigeon, 120));
 	}
 }

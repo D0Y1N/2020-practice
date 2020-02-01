@@ -82,7 +82,7 @@ public class LED extends SubsystemBase {
   }
 
   private void autonomous() {
-    setRGB(counter, 0, 0, 0);
+    /*setRGB(counter, 0, 0, 0);
     counter++;
     counter %= buffer.getLength();
     if(ds.getAlliance().equals(DriverStation.Alliance.Blue)) {
@@ -90,6 +90,14 @@ public class LED extends SubsystemBase {
     } else {
       setRGB(counter, 255, 0, 0);
     }
+    update();*/
+    setRGB(counter, 0, 0, 0);
+    counter++;
+    counter %= buffer.getLength();
+    if(counter%2 == 0)
+      setRGB(counter, 255, 255, 0);
+    else
+      setRGB(counter, 0, 255, 0);
     update();
   }
 

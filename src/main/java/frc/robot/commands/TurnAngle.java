@@ -39,12 +39,12 @@ public class TurnAngle extends CommandBase {
   @Override
   public void execute() {
     if(m_requestedAngle>1) {
-        //this will turn the robot left     
-        m_drivetrain.tankDrive(0.3, -0.3, false);   
+        //this will turn the robot right     
+        m_drivetrain.tankDrive(0.5, -0.5, false);   
     }
     else if(m_requestedAngle<-1) {
-        //this will turn the robot right
-        m_drivetrain.tankDrive(-0.3, 0.3, false);    
+        //this will turn the robot left
+        m_drivetrain.tankDrive(-0.5, 0.5, false);    
     }
 
   }
