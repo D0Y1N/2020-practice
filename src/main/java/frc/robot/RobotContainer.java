@@ -35,6 +35,7 @@ public class RobotContainer {
 	private final LED m_led = new LED();
 	private final GyroPigeon m_pigeon = new GyroPigeon();
 	private final ColorSpinner m_spinner = new ColorSpinner();
+	private final DSolenoid m_dsoleniod = new DSolenoid();
 
 	//Commands
 
@@ -79,6 +80,13 @@ public class RobotContainer {
 		m_cargo);
 
 	/**
+	 * Soleniod Controller
+	 */
+	private final Command m_TeleopDSolenoid = new RunCommand(
+		() -> m_dsoleniod.switchDS(),
+		m_dsoleniod);
+
+	/**
 	 * The container for the robot. Contains subsystems, OI devices, and commands.
 	 */
 	public RobotContainer() {
@@ -86,6 +94,7 @@ public class RobotContainer {
 		m_drivetrain.setDefaultCommand(m_splitArcadeJoystick);
 		m_arm.setDefaultCommand(m_TeleopArm);
 		m_cargo.setDefaultCommand(m_TeleopCargo);
+		m_dsoleniod.setDefaultCommand(m_TeleopDSolenoid);
 
 		CameraServer.getInstance().startAutomaticCapture(0);
 		CameraServer.getInstance().startAutomaticCapture(1);
@@ -111,7 +120,12 @@ public class RobotContainer {
          */
         new JoystickButton(m_driverController, XboxController.Button.kX.value).whenPressed(m_tankController);
         new JoystickButton(m_driverController, XboxController.Button.kY.value).whenPressed(m_arcadeController);
-        new JoystickButton(m_driverController, XboxController.Button.kB.value).whenPressed(m_splitArcadeController);
+		new JoystickButton(m_driverController, XboxController.Button.kB.value).whenPressed(m_splitArcadeController);
+		
+		/**
+		 * Buttons trigger the solenoid
+		 */
+		new JoystickButton(m_operatorController, XboxController.Button.kY.value).whenReleased(m_TeleopDSolenoid);
 	}
 
 	/**

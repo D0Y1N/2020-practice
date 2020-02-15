@@ -32,7 +32,7 @@ public class ColorSpinner extends SubsystemBase {
    private int index = -1; 
    private double rotations = 0;
 
-   DoubleSolenoid doubleSolenoid = new DoubleSolenoid(Constants.doubleSolenoidA, Constants.doubleSolenoidB);
+   //DoubleSolenoid doubleSolenoid = new DoubleSolenoid(Constants.doubleSolenoidA, Constants.doubleSolenoidB);
    
   private final Color kBlueTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
   private final Color kGreenTarget = ColorMatch.makeColor(0.197, 0.561, 0.240);
@@ -107,7 +107,7 @@ public class ColorSpinner extends SubsystemBase {
     SmartDashboard.putNumber("Color Confidnece", clrMatch.matchClosestColor(clrSensor.getColor()).confidence);
   }
 
-  public void up() {
+  /*public void up() {
     if (doubleSolenoid.get() != DoubleSolenoid.Value.kReverse) {
       doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
@@ -117,7 +117,7 @@ public class ColorSpinner extends SubsystemBase {
     if (doubleSolenoid.get() != DoubleSolenoid.Value.kForward) {
       doubleSolenoid.set(DoubleSolenoid.Value.kForward);
     }
-  }
+  }*/
 
   public void setWheelSpeed(double speed) {
     if(Math.abs(speed)>.001) {
