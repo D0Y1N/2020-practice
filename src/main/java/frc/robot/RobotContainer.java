@@ -34,6 +34,7 @@ public class RobotContainer {
 	private final Cargo m_cargo = new Cargo();
 	private final LED m_led = new LED();
 	private final GyroPigeon m_pigeon = new GyroPigeon();
+	private final ColorSpinner m_spinner = new ColorSpinner();
 
 	//Commands
 
